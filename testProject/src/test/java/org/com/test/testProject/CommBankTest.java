@@ -38,8 +38,12 @@ public class CommBankTest extends BaseHandler {
 		landingPage.clickOnSearch();
 		landingPage.searchFor("Travel");
 		landingPage.clickOnTravelCardPage();
-		commBankTravelOverseasMoneyCardPage.clickOnLogin();
-		netBankLoginPage.enterCredentials();
+		if(commBankTravelOverseasMoneyCardPage.validatePageTitle().contains("Travel Money Card")) {
+			System.out.println("--Asserted the page title---");
+			commBankTravelOverseasMoneyCardPage.clickOnLogin();
+			netBankLoginPage.enterCredentials();
+		}
+		
 	}
 	
 	@After
